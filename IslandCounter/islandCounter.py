@@ -12,10 +12,29 @@ theInput[4][4] = 1
 
 
 class OceanMap:
-    def __init__(self,OceanMap):
+    """
+    This class represents the map for the ocean.
+
+    Attributes:
+        Map {2D Array}: An array with 1's and 0's, 1 representing island 0's
+                        represent ocean
+    """
+    def __init__(self, OceanMap):
+        """
+        This function is used during declarion to set 'map' (Array)
+
+        Args:
+            OceanMap {2D Array} sets attribute Map for the object
+        """
         self.Map = OceanMap
 
     def largestIsland(self):
+        """
+        Counts size of each island and returns size of the largest island
+
+        Returns:
+            {int} Size of the largest island
+        """
         x,y = (0,0)
         largest_island = 0
         for x in range(len(self.Map)):
@@ -28,6 +47,16 @@ class OceanMap:
 
 
     def countIsland(self,x,y):
+        """
+        Counts the size of a single island and returns the size.
+
+        Args:
+            x {int} The X coordinate of an location of part of island
+            y {int} The Y Coordiante of an location of part of island
+
+        Returns:
+            {int} The Size of the island
+        """
         if (x >= len(self.Map)) or (y >= len(self.Map[0])):
             return 0
 
