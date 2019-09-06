@@ -1,16 +1,3 @@
-rows, cols = (5,5)
-theInput = [[0 for i in range(cols)] for j in range(rows)]
-theInput[1][1] = 1
-theInput[1][2] = 1
-theInput[2][2] = 1
-
-theInput[4][0] = 1
-theInput[4][1] = 1
-theInput[4][2] = 1
-theInput[4][3] = 1
-theInput[4][4] = 1
-
-
 class OceanMap:
     """
     This class represents the map for the ocean.
@@ -37,6 +24,7 @@ class OceanMap:
         """
         x,y = (0,0)
         largest_island = 0
+        # Goes through each location on the Map
         for x in range(len(self.Map)):
             for y in range(len(self.Map[0])):
                 islandSize = self.countIsland(x,y)
@@ -64,7 +52,7 @@ class OceanMap:
         toSearch = [(x,y)]
         islandSize = 0
         for oceanTuple in toSearch:
-            if (oceanTuple[0] >= len(self.Map)) or (oceanTuple[1] >= len(self.Map[0])):
+            if (oceanTuple[0] >= len(self.Map) or oceanTuple[0] < 0) or (oceanTuple[1] >= len(self.Map[0] or oceanTuple[1] < 0 )):
                 continue
 
             if(theMap[oceanTuple[0]][oceanTuple[1]] == 1):
@@ -78,12 +66,9 @@ class OceanMap:
         return islandSize
 
     def printMap(self):
+        """
+        Prints the entire map {2D Array} in the command line
+        """
         for row in self.Map:
             print(row)
-
-oceanMP = OceanMap(theInput)
-
-output = oceanMP.largestIsland()
-
-print(output)
 
